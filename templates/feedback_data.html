@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f5dc, #d2b48c); /* Apply gradient background to body */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #000000;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback Data</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Feedback</th>
+            <th>Suggestion</th>
+            <th>Rating</th>
+        </tr>
+        {% if feedback %}
+            {% for fb in feedback %}
+            <tr>
+                <td>{{ fb.name }}</td>
+                <td>{{ fb.email }}</td>
+                <td>{{ fb.contact }}</td>
+                <td>{{ fb.feedback }}</td>
+                <td>{{ fb.suggestion }}</td>
+                <td>{{ fb.rating }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="6" style="text-align: center; font-size: 18px; color: #999;">No feedback data available.</td>
+            </tr>
+        {% endif %}
+    </table>
+</body>
+</html>

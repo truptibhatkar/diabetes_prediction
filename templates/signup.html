@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Page</title>
+    <style>
+        /* CSS Styles */
+        body {
+            background: #000000;
+            font-family: 'Poppins', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333333;
+        }
+        .container {
+            background: linear-gradient(135deg, #f5f5dc, #d2b48c);
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+        .container h2 {
+            margin-bottom: 1.5rem;
+            color: #333333;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+        .input-group input:focus {
+            border-color: #ffafbd;
+            box-shadow: 0 0 5px rgba(255, 175, 189, 0.5);
+            outline: none;
+        }
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #ffc3a0, #ffafbd);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Your Account</h2>
+        <form method="POST" action="/signup">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" id="contact" name="contact" placeholder="Contact Number" pattern="\d{10}" title="Enter a valid 10-digit contact number" required>
+            </div>
+            <div class="input-group">
+                <label for="blood">Blood Group</label>
+                <input type="text" id="blood" name="blood" placeholder="Blood Group" required>
+            </div>
+            <div class="input-group">
+                <label for="illness">Any Known Illness</label>
+                <input type="text" id="illness" name="illness" placeholder="Known Illness" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

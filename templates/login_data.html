@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Signup Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f5dc, #d2b48c); /* Apply gradient background to body */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #000000;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sign Up Data</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Contact</th>
+            <th>Blood Group</th>
+            <th>Illness</th>
+            <th>Email</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.fname }}</td>
+            <td>{{ user.contact }}</td>
+            <td>{{ user.blood }}</td>
+            <td>{{ user.illness }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

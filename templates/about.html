@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;  /* White background */
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .about-us {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 50px 0;
+        }
+        /* Vision Section */
+        .vision {
+            background: linear-gradient(135deg, #f5f5dc, #d2b48c); /* Beige to Tan gradient */
+            color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        .vision h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .vision p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        /* What We Do Section */
+        .what-we-do {
+            background: linear-gradient(135deg, #f5f5dc, #d2b48c); /* Beige to Tan gradient */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .what-we-do h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .what-we-do p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature {
+            background-color: #F5F5DC;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        .feature h3 {
+            color: #007bff;
+            font-size: 1.5em;
+        }
+        .feature p {
+            font-size: 1em;
+            color: #555;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About Us</h1>
+</header>
+
+<div class="container">
+    <div class="about-us">
+        <!-- Vision Section -->
+        <div class="vision">
+            <h2>Our Vision</h2>
+            <p>At <strong>diabetesprediction.com</strong>, we are committed to empowering individuals with precise diabetes risk predictions using advanced machine learning algorithms. By leveraging the Random Forest model, trained on a dataset of around 1 lakh individual records, we deliver highly accurate predictions with an accuracy rate exceeding 97%. Our mission is to foster proactive health management by offering users detailed insights and confidence percentages for every prediction.</p>
+        </div>
+
+        <!-- What We Do Section -->
+        <div class="what-we-do">
+            <h2>What We Do</h2>
+            <p>We specialize in utilizing machine learning to predict diabetes risk. Our platform analyzes health metrics such as blood glucose levels, BMI, age, and other factors to provide comprehensive predictions. These predictions are backed by extensive data from around 1 lakh individual records, ensuring accuracy and reliability. In addition to determining diabetes risk, we offer confidence percentages for each prediction, empowering users with actionable health insights. By blending data science and healthcare, we aim to support early diagnosis and prevention.</p>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature">
+                <h3>97%+ Prediction Accuracy</h3>
+                <p>Powered by Random Forest, trained on a robust dataset, our platform delivers highly reliable diabetes risk predictions.</p>
+            </div>
+            <div class="feature">
+                <h3>Confidence Insights</h3>
+                <p>We provide users with confidence percentages for their diabetes predictions, offering deeper insights into their health status.</p>
+            </div>
+            <div class="feature">
+                <h3>Comprehensive Health Metrics</h3>
+                <p>By analyzing key indicators such as glucose levels and BMI, our platform delivers personalized predictions tailored to each user.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 diabetesprediction.com. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
