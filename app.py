@@ -7,7 +7,6 @@ import numpy as np
 import pandas as pd
 
 app = Flask(__name__)
-model = pickle.load(open('diabetes_model.pkl', 'rb'))
 scalar=pickle.load(open('scaler.pkl','rb'))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Trupti%4030@localhost:3306/diabetes'
@@ -43,19 +42,41 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
 
 # Load the scaler (assuming it has been saved earlier after fitting it on the training data)
-with open('diabetes_model.pkl', 'rb') as f:
+
+import pickle
+import gzip
+
+# Open the gzip-compressed file and load the model
+with gzip.open('diabetes_model_compressed.pkl.gz', 'rb') as f:
     model = pickle.load(f)
 
+print("Model loaded successfully.")
 
+    
 @app.route('/calculate', methods=['POST'])
 def cal():
     if 'user_id' not in session:
+        
         flash("You need to log in first!", 'danger')
         return redirect(url_for('login'))
 
     try:
-        # Convert form values to a list of floats
-        data = [float(x) for x in request.form.values()]
+        # Convert form values to floats and handle non-numeric values
+        data = []
+        for key, value in request.form.items():
+            if key == 'terms_checkbox':  # Handle checkbox separately
+                if value != 'on':  # If the checkbox is not checked, skip
+                    flash("You need to accept the terms and conditions.", 'danger')
+                    return redirect(url_for('predict'))  # Redirect back to the prediction form
+            else:
+                try:
+                    data.append(float(value))
+                except ValueError:
+                    # If a non-numeric value is found, log an error or handle it accordingly
+                    print(f"Non-numeric value encountered: {value}")
+                    flash("Please enter valid numeric values.", 'danger')
+                    return redirect(url_for('predict'))  # Redirect back to the prediction form
+
         print("Input Data:", data)
 
         # Transform the input using the loaded scaler
@@ -66,13 +87,14 @@ def cal():
         prediction = model.predict(final_input)[0]
         print("Prediction:", prediction)
         probabilities = model.predict_proba(final_input)
-        confidence=max(probabilities[0])
-        conf_per=round(confidence*100)
+        confidence = max(probabilities[0])
+        conf_per = round(confidence * 100)
+
         # Flash appropriate message
         if prediction == 0:
-            flash(f"No Diabetes : confidence / accuracy of prediction: {conf_per}",'success')
+            flash(f"No Diabetes: confidence/accuracy of prediction: {conf_per}%", 'success')
         else:
-            flash(f"Diabetes : confidence / accuaracyof prediction: {conf_per}",'danger')
+            flash(f"Diabetes: confidence/accuracy of prediction: {conf_per}%", 'danger')
 
     except Exception as e:
         # Log the error and flash a generic error message
@@ -81,8 +103,6 @@ def cal():
 
     # Render the prediction page
     return render_template('predict.html')
-
-
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():

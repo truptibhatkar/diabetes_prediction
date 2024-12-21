@@ -129,16 +129,16 @@
             <label for="blood_glucose_level">Blood Glucose Level:</label>
             <input type="text" id="blood_glucose_level" name="blood_glucose_level" placeholder="e.g., 120 mg/dL" required>
             
+          
             <div class="terms" style="display: flex; align-items: center;">
-                <input type="checkbox" id="terms" name="terms" required style="margin-right: 10px;">
                 <label for="terms">
-                    I agree to the <a href="{{url_for('terms')}}" target="_blank">Terms and Conditions</a>.
+                    <br>I agree to the <a href="{{url_for('terms')}}" target="_blank">Terms and Conditions<br></a>.
                 </label>
             </div>
             
-            <br>
             <input type="submit" value="Submit">
         </form>
+        
     </div>
 </body>
 </html>
