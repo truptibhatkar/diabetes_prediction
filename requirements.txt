@@ -6,4 +6,5 @@ matplotlib
 gunicorn
 Flask-SQLAlchemy
 flask_bcrypt
+flask_migrate
 #pip install -r requirements.txt
