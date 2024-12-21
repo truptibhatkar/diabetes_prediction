@@ -1,4 +1,3 @@
-import pickle
 from flask import Flask, redirect, request, url_for, render_template, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -6,10 +5,27 @@ from flask_migrate import Migrate
 import numpy as np
 import pandas as pd
 import joblib
+import pymysql
+
+
+try:
+    connection = pymysql.connect(
+        host='localhost',
+        user='root',
+        password='Trupti@30',
+        database='diabetes',
+        port=3306
+    )
+    print("Connection successful")
+except Exception as e:
+    print(f"Error: {e}")
+
+
 app = Flask(__name__)
 scalar=joblib.load(open('scaler.joblib','rb'))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Trupti%4030@localhost:3306/diabetes'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'your_secret_key'
 
