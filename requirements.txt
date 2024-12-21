@@ -4,5 +4,6 @@ pandas
 numpy
 matplotlib
 gunicorn
+Flask-SQLAlchemy
 
 #pip install -r requirements.txt
