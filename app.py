@@ -42,16 +42,8 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
 
 # Load the scaler (assuming it has been saved earlier after fitting it on the training data)
-
-import pickle
-import gzip
-
-# Open the gzip-compressed file and load the model
-with gzip.open('diabetes_model_compressed.pkl.gz', 'rb') as f:
+with open('diabetes_model.pkl', 'rb') as f:
     model = pickle.load(f)
-
-print("Model loaded successfully.")
-
     
 @app.route('/calculate', methods=['POST'])
 def cal():
