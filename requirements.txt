@@ -7,4 +7,5 @@ gunicorn
 Flask-SQLAlchemy
 flask_bcrypt
 flask_migrate
+pymysql
 #pip install -r requirements.txt
