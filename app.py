@@ -5,9 +5,9 @@ from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 import numpy as np
 import pandas as pd
-
+import joblib
 app = Flask(__name__)
-scalar=pickle.load(open('scaler.pkl','rb'))
+scalar=joblib.load(open('scaler.joblib','rb'))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Trupti%4030@localhost:3306/diabetes'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -42,8 +42,8 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
 
 # Load the scaler (assuming it has been saved earlier after fitting it on the training data)
-with open('diabetes_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+with open('diabetes_model.joblib', 'rb') as f:
+    model = joblib.load(f)
     
 @app.route('/calculate', methods=['POST'])
 def cal():
