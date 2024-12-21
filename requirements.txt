@@ -5,5 +5,5 @@ numpy
 matplotlib
 gunicorn
 Flask-SQLAlchemy
-
+flask_bcrypt
 #pip install -r requirements.txt
